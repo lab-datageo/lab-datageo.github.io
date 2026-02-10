@@ -22,7 +22,7 @@ group: contact
 <div class="col-md-4">
 
   <h4>Dayu Apoji, Ph.D.</h4>
-  AProfessor<br>
+  Assistant Professor<br>
   [Faculty of Civil and Environmental Engineering](https://ftsl.itb.ac.id/kelompok-keahlian/rekayasa-geoteknik/daa/)<br>
   [Bandung Institute of Technology](https://itb.ac.id/)<br>
   Jl. Ganesa No. 10 <br>
