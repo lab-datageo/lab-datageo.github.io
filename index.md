@@ -1,5 +1,5 @@
 ---
-title: Fraser Lab
+title: Lab DataGeo
 layout: home
 group: home
 ---
