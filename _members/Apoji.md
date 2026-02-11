@@ -1,6 +1,6 @@
 ---
 name: Dayu Apoji, Ph.D.
-startdate: [2011-01-01]
+startdate: [2024-01-01]
 enddate: []
 image: /static/img/members/apoji.jpg
 # altimage: /static/img/members/Fraser_pb.jpg
