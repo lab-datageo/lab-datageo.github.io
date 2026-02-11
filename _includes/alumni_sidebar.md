@@ -1,4 +1,4 @@
-## Fraser Lab Alumni
+## Lab Alumni
 {% comment %}
 Create an array of members with their final enddate for proper sorting.
 For members with multiple enddates (arrays), we use the last enddate.
@@ -93,7 +93,7 @@ Subsequently: {{member.subsequent}} <br>
 {% endfor %}
 
 <br>
-## Undergraduate Interns
+## Graduate Students
 {% comment %}Sort undergraduate interns by final enddate{% endcomment %}
 {% assign undergrads_with_final_date = "" | split: "" %}
 {% for undergraduate in site.members %}
@@ -140,7 +140,7 @@ Subsequently: {{undergraduate.subsequent}}<br>
 
 
 <br>
-## [High School Interns](http://sep.ucsf.edu/hs_programs/high-school-intern-program/)
+## Undergraduate Students
 {% comment %}Sort high school interns by final enddate{% endcomment %}
 {% assign students_with_final_date = "" | split: "" %}
 {% for student in site.members %}
@@ -184,7 +184,7 @@ Subsequently: {{student.subsequent}}<br>
 
 
 <br>
-## Fraser Lab Visitors
+## Lab Visitors
 {% comment %}Separate current and past visitors, then sort past visitors by final enddate{% endcomment %}
 {% assign current_visitors = "" | split: "" %}
 {% assign visitors_with_final_date = "" | split: "" %}

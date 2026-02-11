@@ -1,7 +1,7 @@
 name: "Lab DataGeo"
 description: "This is the official web page for the Dayu Apoji Lab at ITB."
 
-url: "https://lab-datageo.github.io/"
+url: "http://127.0.0.1:4000/lab-datageo.github.io/"
 
 paginate: 5
 plugins: [jekyll-paginate]
