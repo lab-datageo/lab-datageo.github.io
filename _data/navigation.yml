@@ -30,9 +30,9 @@
   link: "/news"
   group: news
 
-- name: join
-  link: "/join"
-  group: join
+# - name: join
+#   link: "/join"
+#   group: join
 
 - name: contact
   link: "/contact"
