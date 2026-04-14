@@ -2,7 +2,7 @@
 name: Arsya Maulana Primaldy
 startdate: [2026-02-01]
 enddate: []
-image: /static/img/members/arsya.jpg
+image: /static/img/members/arsya1to1.jpg
 # altimage: /static/img/members/Fraser_pb.jpg
 position: Undergraduate Research Assistant
 #current:
