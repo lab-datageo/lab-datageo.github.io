@@ -50,7 +50,7 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 {% endif %}
 
 <hr class="pub-entry" data-key="{{is_key}}" data-tags="{{tags_str}}">
-<div class="row pub-entry" style="padding-top: 60px; margin-top: -60px;" id="{{publication.pmid}}" data-key="{{is_key}}" data-tags="{{tags_str}}">
+<div class="row pub-entry" style="padding-top: 60px; margin-top: -60px;" id="{{ publication.pmid | default: publication.slug }}" data-key="{{is_key}}" data-tags="{{tags_str}}">
 	<div>
 		<h5>{{ publication.title | markdownify  | remove: '<p>' | remove: '</p>'}}</h5>
 		<h6>{{ publication.authors | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
@@ -76,12 +76,17 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 </div>
 
 <div class="row pub-entry" style="padding-top: 20px; margin-top: -20px" data-key="{{is_key}}" data-tags="{{tags_str}}">
-	<div class="col-sm-6">
+	<div class="{% if publication.image %}col-sm-6{% else %}col-sm-12{% endif %}">
+		{% if publication.image %}
 		<img class = "img-fluid" src = "{{publication.image}}" alt =  "Key Figure" style="max-height: 200px;" loading="lazy" decoding="async">
+		{% endif %}
 	</div>
-	<ul class="col-sm-6">
+	<ul class="{% if publication.image %}col-sm-6{% else %}col-sm-12{% endif %}">
 		<br>
 		<h6>Access the paper</h6>
+		{% if publication.link %}
+		<li>Link: <a href="{{publication.link}}" title = "Publication link for {{publication.title}} (opens in new tab)" target="_blank">{{publication.link}}</a></li>
+		{% endif %}
 		<!--PMID-->
 		{% if publication.pmid %}
 		<li>PMID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{publication.pmid}}" title = "PubMed: {{publication.pmid}} (opens in new tab)" target="_blank"> {{publication.pmid}}</a></li>
