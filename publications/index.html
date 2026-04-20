@@ -6,32 +6,33 @@ group: publications
 {% assign principal_member = site.members | where_exp: "member", "member.position contains 'Principal'" | first %}
 {% assign principal_name = "Principal Investigator" %}
 {% if principal_member and principal_member.name %}
-	{% assign principal_name = principal_member.name | split: "," | first %}
+{% assign principal_name = principal_member.name | split: "," | first %}
 {% endif %}
 {% assign scholar_url = "https://scholar.google.com/" %}
 {% if principal_member and principal_member.scholar %}
-	{% assign scholar_url = "https://scholar.google.com/citations?user=" | append: principal_member.scholar %}
+{% assign scholar_url = "https://scholar.google.com/citations?user=" | append: principal_member.scholar %}
 {% endif %}
 {% assign scopus_url = "https://www.scopus.com/" %}
 {% if principal_member and principal_member.scopus %}
-	{% assign scopus_url = principal_member.scopus %}
+{% assign scopus_url = principal_member.scopus %}
 {% endif %}
 {% assign sinta_url = "https://sinta.kemdikbud.go.id/" %}
 {% if principal_member and principal_member.sinta %}
-	{% assign sinta_url = principal_member.sinta %}
+{% assign sinta_url = principal_member.sinta %}
 {% endif %}
 
 <h1>Publications</h1>
 <p>
-	This page presents a portfolio of {{ principal_name }}'s publications, including links to external publication profiles.
+	This page presents a portfolio of {{ principal_name }}'s publications, including links to external publication
+	profiles.
 </p>
 <ul>
 	<li><a href="{{ scholar_url }}" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-	<li><a href="{{ scopus_url }}" target="_blank" rel="noopener noreferrer">Scopus</a></li>
+	<!-- <li><a href="{{ scopus_url }}" target="_blank" rel="noopener noreferrer">Scopus</a></li> -->
 	<li><a href="{{ sinta_url }}" target="_blank" rel="noopener noreferrer">SINTA</a></li>
 </ul>
 
-<div class="pub-filters" style="margin-bottom: 20px;">
+<!-- <div class="pub-filters" style="margin-bottom: 20px;">
 	<div style="margin-bottom: 10px;">
 		<strong>Filter:</strong>
 		<button class="btn btn-sm btn-outline-primary pub-filter active" data-filter="all">All Publications</button>
@@ -43,8 +44,8 @@ group: publications
 		<button class="btn btn-sm btn-outline-secondary tag-filter" data-tag="{{ tag.name }}">{{ tag.name }}</button>
 		{% endfor %}
 	</div> -->
-</div>
-
+<!-- </div> -->
+<!-- 
 <div class="container-fluid">
 
 	{% assign sorted = site.publications | sort: "pub_date" | reverse %}
@@ -120,203 +121,202 @@ group: publications
 					Scholar{% else %}View Publication{% endif %}</a></li>
 			{% endif %}
 			<!--PMID-->
-			{% if publication.pmid %}
-			<li>PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pmid}}"
-					title="PubMed: {{publication.pmid}} (opens in new tab)" target="_blank" rel="noopener noreferrer">
-					{{publication.pmid}}</a></li>
-			{% endif %}
+{% if publication.pmid %}
+<li>PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pmid}}"
+		title="PubMed: {{publication.pmid}} (opens in new tab)" target="_blank" rel="noopener noreferrer">
+		{{publication.pmid}}</a></li>
+{% endif %}
 
-			<!--PMCID - optional -->
-			{% if publication.pmcid %}
-			<li>PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/{{publication.pmcid}}"
-					title="PubMed Central: {{publication.pmcid}} (opens in new tab)" target="_blank"
-					rel="noopener noreferrer"> {{publication.pmcid}}</a></li>
-			{% endif %}
+<!--PMCID - optional -->
+{% if publication.pmcid %}
+<li>PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/{{publication.pmcid}}"
+		title="PubMed Central: {{publication.pmcid}} (opens in new tab)" target="_blank" rel="noopener noreferrer">
+		{{publication.pmcid}}</a></li>
+{% endif %}
 
-			<!--Biorxiv - optional -->
-			{% if publication.biorxiv %}
-			{% assign bval = publication.biorxiv %}
-			{% if bval contains 'http' or bval contains 'doi' %}
-			<li>BioRxiv Preprint: <a href="{{ bval }}" title="BioRxiv Preprint: {{bval}} (opens in new tab)"
-					target="_blank">{{ bval }}</a></li>
-			{% else %}
-			{% assign has_dot = bval contains '.' %}
-			{% if has_dot %}
-			{% assign parts = bval | split: '.' %}
-			{% if parts.size >= 3 %}
-			{% assign date_string = parts[0] | append: '.' | append: parts[1] | append: '.' | append: parts[2] %}
-			{% assign biorxiv_base = bval %}
-			{% if date_string > '2025.12.01' %}
-			<li>BioRxiv Preprint: <a href="https://doi.org/10.64898/{{biorxiv_base}}"
-					title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base | split: "." |
-					last }}</a></li>
-			{% else %}
-			<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
-					title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base | split: "." |
-					last }}</a></li>
-			{% endif %}
-			{% else %}
-			{% assign biorxiv_base = bval %}
-			<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
-					title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base}}</a></li>
-			{% endif %}
-			{% else %}
-			{% assign biorxiv_base = bval %}
-			<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
-					title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base}}</a></li>
-			{% endif %}
-			{% endif %}
-			{% endif %}
+<!--Biorxiv - optional -->
+{% if publication.biorxiv %}
+{% assign bval = publication.biorxiv %}
+{% if bval contains 'http' or bval contains 'doi' %}
+<li>BioRxiv Preprint: <a href="{{ bval }}" title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank">{{ bval
+		}}</a></li>
+{% else %}
+{% assign has_dot = bval contains '.' %}
+{% if has_dot %}
+{% assign parts = bval | split: '.' %}
+{% if parts.size >= 3 %}
+{% assign date_string = parts[0] | append: '.' | append: parts[1] | append: '.' | append: parts[2] %}
+{% assign biorxiv_base = bval %}
+{% if date_string > '2025.12.01' %}
+<li>BioRxiv Preprint: <a href="https://doi.org/10.64898/{{biorxiv_base}}"
+		title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base | split: "." |
+		last }}</a></li>
+{% else %}
+<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
+		title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base | split: "." |
+		last }}</a></li>
+{% endif %}
+{% else %}
+{% assign biorxiv_base = bval %}
+<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
+		title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base}}</a></li>
+{% endif %}
+{% else %}
+{% assign biorxiv_base = bval %}
+<li>BioRxiv Preprint: <a href="https://doi.org/10.1101/{{biorxiv_base}}"
+		title="BioRxiv Preprint: {{bval}} (opens in new tab)" target="_blank"> {{biorxiv_base}}</a></li>
+{% endif %}
+{% endif %}
+{% endif %}
 
-			<!--Arxiv - optional -->
-			{% if publication.arxiv %}
-			<li>arXiv Preprint: <a href="https://arxiv.org/abs/{{publication.arxiv}}"
-					title="aRxiv Preprint: {{publication.arxiv}} (opens in new tab)" target="_blank">
-					{{publication.arxiv}}</a></li>
-			{% endif %}
+<!--Arxiv - optional -->
+{% if publication.arxiv %}
+<li>arXiv Preprint: <a href="https://arxiv.org/abs/{{publication.arxiv}}"
+		title="aRxiv Preprint: {{publication.arxiv}} (opens in new tab)" target="_blank">
+		{{publication.arxiv}}</a></li>
+{% endif %}
 
-			<!--Chemrxiv - optional -->
-			{% if publication.chemrxiv %}
-			<li>ChemRxiv Preprint: <a href="https://doi.org/10.26434/chemrxiv-{{publication.chemrxiv}}"
-					title="ChemRxiv Preprint: {{publication.chemrxiv}} (opens in new tab)" target="_blank">
-					{{publication.chemrxiv}}</a></li>
-			{% endif %}
+<!--Chemrxiv - optional -->
+{% if publication.chemrxiv %}
+<li>ChemRxiv Preprint: <a href="https://doi.org/10.26434/chemrxiv-{{publication.chemrxiv}}"
+		title="ChemRxiv Preprint: {{publication.chemrxiv}} (opens in new tab)" target="_blank">
+		{{publication.chemrxiv}}</a></li>
+{% endif %}
 
-			<!--Preprints.org - optional -->
-			{% if publication.preprints %}
-			<li>Preprints.org Preprint: <a href="https://www.preprints.org/manuscript/{{publication.preprints}}"
-					title="Preprints.org Preprint: {{publication.preprints}} (opens in new tab)" target="_blank">
-					{{publication.preprints}}</a></li>
-			{% endif %}
+<!--Preprints.org - optional -->
+{% if publication.preprints %}
+<li>Preprints.org Preprint: <a href="https://www.preprints.org/manuscript/{{publication.preprints}}"
+		title="Preprints.org Preprint: {{publication.preprints}} (opens in new tab)" target="_blank">
+		{{publication.preprints}}</a></li>
+{% endif %}
 
-			<!-- PDF -->
-			{% if publication.journal %}
-			{% if publication.pdf %}
-			<li><a href="{{publication.pdf}}" title="PDF for {{publication.title}} (opens in new tab)" target="_blank">
-					Full Text</a></li>
-			{% endif %}
-			{% endif %}
+<!-- PDF -->
+{% if publication.journal %}
+{% if publication.pdf %}
+<li><a href="{{publication.pdf}}" title="PDF for {{publication.title}} (opens in new tab)" target="_blank">
+		Full Text</a></li>
+{% endif %}
+{% endif %}
 
-			<!--OSF - optional -->
-			{% if publication.osf %}
-			<li>OSF Preprint: <a href="https://osf.io/{{publication.osf}}"
-					title="OSF Preprint: {{publication.osf}} (opens in new tab)" target="_blank">
-					{{publication.osf}}</a></li>
-			{% endif %}
+<!--OSF - optional -->
+{% if publication.osf %}
+<li>OSF Preprint: <a href="https://osf.io/{{publication.osf}}"
+		title="OSF Preprint: {{publication.osf}} (opens in new tab)" target="_blank">
+		{{publication.osf}}</a></li>
+{% endif %}
 
-			<!-- SBGrid Datasets - optional -->
-			{% if publication.data %}
-			<li>Online Dataset{% if publication.data.size > 1 %}s{% endif %}:
-				{% if publication.data.size > 1 %}
-				<ul>
-					{% for dataset in publication.data %}
-					<li><a href="http://dx.doi.org/{{dataset}}" title="SBGrid Data Repository (opens in new tab)"
-							target="_blank">doi: {{dataset}}</a></li>
-					{% endfor %}
-				</ul>
-				{% else %}
-				<a href="http://dx.doi.org/{{publication.data}}" title="SBGrid Data Repository (opens in new tab)"
-					target="_blank">doi: {{publication.data}}</a>
-				{% endif %}
-			</li>
-			{% endif %}
+<!-- SBGrid Datasets - optional -->
+{% if publication.data %}
+<li>Online Dataset{% if publication.data.size > 1 %}s{% endif %}:
+	{% if publication.data.size > 1 %}
+	<ul>
+		{% for dataset in publication.data %}
+		<li><a href="http://dx.doi.org/{{dataset}}" title="SBGrid Data Repository (opens in new tab)"
+				target="_blank">doi: {{dataset}}</a></li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	<a href="http://dx.doi.org/{{publication.data}}" title="SBGrid Data Repository (opens in new tab)"
+		target="_blank">doi: {{publication.data}}</a>
+	{% endif %}
+</li>
+{% endif %}
 
-			<!--PDBs - optional-->
-			{% if publication.pdbs %}
-			<li>Deposited Structure{% if publication.pdbs.size > 1 %}s{% endif %}:
-				{% for code in publication.pdbs %}
-				<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{code}}"
-					title="PDB: {{code}} (opens in new tab)" target="_blank">{{code}}</a>{% unless forloop.last %}, {%
-				endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--EMDBs - optional-->
-			{% if publication.emdbs %}
-			<li>Deposited Map{% if publication.emdbs.size > 1 %}s{% endif %}:
-				{% for code in publication.emdbs %}
-				<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{code}}" title="EMDB: {{code}} (opens in new tab)"
-					target="_blank">{{code}}</a>{% unless forloop.last %}, {% endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--pairs of maps and models - optional-->
-			{% if publication.paired_maps_and_models %}
-			<li>Deposited Structure{% if publication.paired_maps_and_models.size > 1 %}s{% endif %} and Map{% if
-				publication.paired_maps_and_models.size > 1 %}s{% endif %}:
-				{% for pair in publication.paired_maps_and_models %}
-				<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{pair.pdb}}"
-					title="PDB and Map pair: {{pair.pdb}} (opens in new tab)" target="_blank">{{pair.pdb}}</a>/<a
-					href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{pair.emdb}}">{{pair.emdb}}</a>{% unless
-				forloop.last %}, {% endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--maps and models and datasets - optional-->
-			{% if publication.paired_maps_and_models_and_data %}
-			<li>Deposited Structure{% if publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}, Map{% if
-				publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}, and Data set{% if
-				publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}:
-				{% for pair in publication.paired_maps_and_models_and_data %}
-				<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{pair.pdb}}"
-					title="PDB and Map pair: {{pair.pdb}} (opens in new tab)" target="_blank">{{pair.pdb}}</a>/<a
-					href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{pair.emdb}}">{{pair.emdb}}</a>/<a
-					href="https://empiar.org/{{pair.empiar}}/">{{pair.empiar}}</a>{% unless forloop.last %}, {%
-				endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--zenodo records - optional-->
-			{% if publication.zenodo %}
-			<li>Zenodo Record{% if publication.zenodo.size > 1 %}s{% endif %}:
-				{% for record in publication.zenodo %}
-				<a href="https://www.zenodo.org/record/{{record.code}}/"
-					title="Zenodo: {{record.code}} (opens in new tab)" target="_blank">{{record.code}}</a>{% if
-				record.description %} ({{record.description}}){% endif %}{% unless forloop.last %}, {% endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--Github - optional-->
-			{% if publication.github %}
-			<li>{% if publication.github.size > 1 %}GitHub Repositories:{%else%}GitHub Repository:{% endif %}
-				{% for record in publication.github %}
-				<a href="https://www.github.com/{{record.url}}/"
-					alt="GitHub Repository: {{record.url}} (opens in new tab)" target="_blank">{{record.url}}</a>{% if
-				record.description %} ({{record.description}}){% endif %}{% unless forloop.last %}, {% endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!-- addgene plasmid - optional -->
-			{% if publication.addgene %}
-			<li>Addgene Plasmid{% if publication.addgene.size > 1 %}s{% endif %}:
-				{% for record in publication.addgene %}
-				<a href="https://www.addgene.org/{{record.plasmid}}/"
-					alt="Addgene Plasmid: {{record.plasmid}} (opens in new tab)"
-					target="_blank">{{record.plasmid}}</a>{% if record.description %} ({{record.description}}){% endif
-				%}{% unless forloop.last %}, {% endunless %}
-				{% endfor %}
-			</li>
-			{% endif %}
-
-			<!--additional links - optional-->
-			{% if publication.links %}
-			<br>
-			<h6>Additional Link{% if publication.links.size > 1 %}s{% endif %}</h6>
-			{% for link in publication.links %}
-			<li><a href="{{link.url}}" alt="{{link.name}} (opens in new tab)" target="_blank">{{link.name}}</a></li>
-			{% endfor %}
-			{% endif %}
-		</ul>
-	</div>
-	<br class="pub-entry" data-key="{{is_key}}" data-tags="{{tags_str}}">
+<!--PDBs - optional-->
+{% if publication.pdbs %}
+<li>Deposited Structure{% if publication.pdbs.size > 1 %}s{% endif %}:
+	{% for code in publication.pdbs %}
+	<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{code}}" title="PDB: {{code}} (opens in new tab)"
+		target="_blank">{{code}}</a>{% unless forloop.last %}, {%
+	endunless %}
 	{% endfor %}
+</li>
+{% endif %}
+
+<!--EMDBs - optional-->
+{% if publication.emdbs %}
+<li>Deposited Map{% if publication.emdbs.size > 1 %}s{% endif %}:
+	{% for code in publication.emdbs %}
+	<a href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{code}}" title="EMDB: {{code}} (opens in new tab)"
+		target="_blank">{{code}}</a>{% unless forloop.last %}, {% endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!--pairs of maps and models - optional-->
+{% if publication.paired_maps_and_models %}
+<li>Deposited Structure{% if publication.paired_maps_and_models.size > 1 %}s{% endif %} and Map{% if
+	publication.paired_maps_and_models.size > 1 %}s{% endif %}:
+	{% for pair in publication.paired_maps_and_models %}
+	<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{pair.pdb}}"
+		title="PDB and Map pair: {{pair.pdb}} (opens in new tab)" target="_blank">{{pair.pdb}}</a>/<a
+		href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{pair.emdb}}">{{pair.emdb}}</a>{% unless
+	forloop.last %}, {% endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!--maps and models and datasets - optional-->
+{% if publication.paired_maps_and_models_and_data %}
+<li>Deposited Structure{% if publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}, Map{% if
+	publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}, and Data set{% if
+	publication.paired_maps_and_models_and_data.size > 1 %}s{% endif %}:
+	{% for pair in publication.paired_maps_and_models_and_data %}
+	<a href="http://www.rcsb.org/pdb/explore/explore.do?structureId={{pair.pdb}}"
+		title="PDB and Map pair: {{pair.pdb}} (opens in new tab)" target="_blank">{{pair.pdb}}</a>/<a
+		href="http://www.ebi.ac.uk/pdbe/entry/emdb/EMD-{{pair.emdb}}">{{pair.emdb}}</a>/<a
+		href="https://empiar.org/{{pair.empiar}}/">{{pair.empiar}}</a>{% unless forloop.last %}, {%
+	endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!--zenodo records - optional-->
+{% if publication.zenodo %}
+<li>Zenodo Record{% if publication.zenodo.size > 1 %}s{% endif %}:
+	{% for record in publication.zenodo %}
+	<a href="https://www.zenodo.org/record/{{record.code}}/" title="Zenodo: {{record.code}} (opens in new tab)"
+		target="_blank">{{record.code}}</a>{% if
+	record.description %} ({{record.description}}){% endif %}{% unless forloop.last %}, {% endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!--Github - optional-->
+{% if publication.github %}
+<li>{% if publication.github.size > 1 %}GitHub Repositories:{%else%}GitHub Repository:{% endif %}
+	{% for record in publication.github %}
+	<a href="https://www.github.com/{{record.url}}/" alt="GitHub Repository: {{record.url}} (opens in new tab)"
+		target="_blank">{{record.url}}</a>{% if
+	record.description %} ({{record.description}}){% endif %}{% unless forloop.last %}, {% endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!-- addgene plasmid - optional -->
+{% if publication.addgene %}
+<li>Addgene Plasmid{% if publication.addgene.size > 1 %}s{% endif %}:
+	{% for record in publication.addgene %}
+	<a href="https://www.addgene.org/{{record.plasmid}}/" alt="Addgene Plasmid: {{record.plasmid}} (opens in new tab)"
+		target="_blank">{{record.plasmid}}</a>{% if record.description %} ({{record.description}}){% endif
+	%}{% unless forloop.last %}, {% endunless %}
+	{% endfor %}
+</li>
+{% endif %}
+
+<!--additional links - optional-->
+{% if publication.links %}
+<br>
+<h6>Additional Link{% if publication.links.size > 1 %}s{% endif %}</h6>
+{% for link in publication.links %}
+<li><a href="{{link.url}}" alt="{{link.name}} (opens in new tab)" target="_blank">{{link.name}}</a></li>
+{% endfor %}
+{% endif %}
+</ul>
 </div>
+<br class="pub-entry" data-key="{{is_key}}" data-tags="{{tags_str}}">
+{% endfor %}
+</div> -->
 
 <script>
 	document.addEventListener('DOMContentLoaded', function () {

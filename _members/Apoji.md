@@ -9,8 +9,8 @@ position: Principal
 interest: AI/ML
 email: dayu.aoji (at) itb.ac.id
 scholar: 1ebiIaIAAAAJ
-scopus: https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&s=AUTHLASTNAME%28Apoji%29+AND+AUTHFIRST%28Dayu%29
-sinta: https://sinta.kemdikbud.go.id/authors?q=Dayu%20Apoji
+# scopus: https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&s=AUTHLASTNAME%28Apoji%29+AND+AUTHFIRST%28Dayu%29
+sinta: https://sinta.kemdiktisaintek.go.id/authors/profile/6202044
 # FTSL: daa
 #twitter: fraser_lab
 linkedin: dayuapoji
