@@ -85,7 +85,7 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 		<br>
 		<h6>Access the paper</h6>
 		{% if publication.link %}
-		<li>Link: <a href="{{publication.link}}" title = "Publication link for {{publication.title}} (opens in new tab)" target="_blank">{{publication.link}}</a></li>
+		<li>Link: <a href="{{publication.link}}" title = "Publication link for {{publication.title}} (opens in new tab)" target="_blank" rel="noopener noreferrer">View Publication</a></li>
 		{% endif %}
 		<!--PMID-->
 		{% if publication.pmid %}
