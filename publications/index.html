@@ -1,22 +1,34 @@
 ---
-title: Principal Publications Portfolio
+title: Publications
 layout: default
 group: publications
 ---
 {% assign principal_member = site.members | where_exp: "member", "member.position contains 'Principal'" | first %}
+{% assign principal_name = "Principal Investigator" %}
+{% if principal_member and principal_member.name %}
+	{% assign principal_name = principal_member.name | split: "," | first %}
+{% endif %}
 {% assign scholar_url = "https://scholar.google.com/" %}
 {% if principal_member and principal_member.scholar %}
 	{% assign scholar_url = "https://scholar.google.com/citations?user=" | append: principal_member.scholar %}
 {% endif %}
+{% assign scopus_url = "https://www.scopus.com/" %}
+{% if principal_member and principal_member.scopus %}
+	{% assign scopus_url = principal_member.scopus %}
+{% endif %}
+{% assign sinta_url = "https://sinta.kemdikbud.go.id/" %}
+{% if principal_member and principal_member.sinta %}
+	{% assign sinta_url = principal_member.sinta %}
+{% endif %}
 
 <h1>Publications</h1>
 <p>
-	This page presents a portfolio of the Principal’s publications, including links to external publication profiles.
+	This page presents a portfolio of {{ principal_name }}'s publications, including links to external publication profiles.
 </p>
 <ul>
 	<li><a href="{{ scholar_url }}" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-	<li><a href="https://www.scopus.com/" target="_blank" rel="noopener noreferrer">Scopus</a></li>
-	<li><a href="https://sinta.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer">SINTA</a></li>
+	<li><a href="{{ scopus_url }}" target="_blank" rel="noopener noreferrer">Scopus</a></li>
+	<li><a href="{{ sinta_url }}" target="_blank" rel="noopener noreferrer">SINTA</a></li>
 </ul>
 
 <div class="pub-filters" style="margin-bottom: 20px;">
@@ -66,7 +78,7 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 <hr class="pub-entry" data-key="{{is_key}}" data-tags="{{tags_str}}">
 <div class="row pub-entry" style="padding-top: 60px; margin-top: -60px;" id="{{ publication.pmid | default: publication.slug }}" data-key="{{is_key}}" data-tags="{{tags_str}}">
 	<div>
-		<h5>{{ publication.title | markdownify  | remove: '<p>' | remove: '</p>'}}</h5>
+		<h5>{{ publication.title | markdownify | remove: '<p>' | remove: '</p>'}}</h5>
 		<h6>{{ publication.authors | markdownify | remove: '<p>' | remove: '</p>' }}</h6>
 		{% if publication.journal %}
 			<i>{{ publication.journal }},</i>
@@ -92,7 +104,7 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 <div class="row pub-entry" style="padding-top: 20px; margin-top: -20px" data-key="{{is_key}}" data-tags="{{tags_str}}">
 	<div class="{% if publication.image %}col-sm-6{% else %}col-sm-12{% endif %}">
 		{% if publication.image %}
-		<img class = "img-fluid" src = "{{publication.image}}" alt =  "Key Figure" style="max-height: 200px;" loading="lazy" decoding="async">
+		<img class="img-fluid" src="{{publication.image}}" alt="Key Figure" style="max-height: 200px;" loading="lazy" decoding="async">
 		{% endif %}
 	</div>
 	<ul class="{% if publication.image %}col-sm-6{% else %}col-sm-12{% endif %}">
