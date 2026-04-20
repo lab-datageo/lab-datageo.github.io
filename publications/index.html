@@ -85,16 +85,16 @@ Co-first authors are marked with &#42; so we check for &#42;** which indicates a
 		<br>
 		<h6>Access the paper</h6>
 		{% if publication.link %}
-		<li>Link: <a href="{{publication.link}}" title = "Publication link for {{publication.title}} (opens in new tab)" target="_blank" rel="noopener noreferrer">View Publication</a></li>
+		<li>Link: <a href="{{publication.link}}" title = "Publication link for {{publication.title}} (opens in new tab)" target="_blank" rel="noopener noreferrer">{% if publication.link contains 'scholar.google.com' %}View on Google Scholar{% else %}View Publication{% endif %}</a></li>
 		{% endif %}
 		<!--PMID-->
 		{% if publication.pmid %}
-		<li>PMID: <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{publication.pmid}}" title = "PubMed: {{publication.pmid}} (opens in new tab)" target="_blank"> {{publication.pmid}}</a></li>
+		<li>PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pmid}}" title = "PubMed: {{publication.pmid}} (opens in new tab)" target="_blank" rel="noopener noreferrer"> {{publication.pmid}}</a></li>
 		{% endif %}
 
 		<!--PMCID - optional -->
 		{% if publication.pmcid %}
-		<li>PMCID: <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/{{publication.pmcid}}" title = "PubMed Central: {{publication.pmcid}} (opens in new tab)" target="_blank"> {{publication.pmcid}}</a></li>
+		<li>PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/{{publication.pmcid}}" title = "PubMed Central: {{publication.pmcid}} (opens in new tab)" target="_blank" rel="noopener noreferrer"> {{publication.pmcid}}</a></li>
 		{% endif %}
 
 		<!--Biorxiv - optional -->
