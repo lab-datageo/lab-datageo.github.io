@@ -1,9 +1,23 @@
 ---
-title: Publications from the Fraser Lab
+title: Principal Publications Portfolio
 layout: default
 group: publications
 ---
+{% assign principal_member = site.members | where_exp: "member", "member.position contains 'Principal'" | first %}
+{% assign scholar_url = "https://scholar.google.com/" %}
+{% if principal_member and principal_member.scholar %}
+	{% assign scholar_url = "https://scholar.google.com/citations?user=" | append: principal_member.scholar %}
+{% endif %}
+
 <h1>Publications</h1>
+<p>
+	This page presents a portfolio of the Principal’s publications, including links to external publication profiles.
+</p>
+<ul>
+	<li><a href="{{ scholar_url }}" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+	<li><a href="https://www.scopus.com/" target="_blank" rel="noopener noreferrer">Scopus</a></li>
+	<li><a href="https://sinta.kemdikbud.go.id/" target="_blank" rel="noopener noreferrer">SINTA</a></li>
+</ul>
 
 <div class="pub-filters" style="margin-bottom: 20px;">
 	<div style="margin-bottom: 10px;">
