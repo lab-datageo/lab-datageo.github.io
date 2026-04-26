@@ -14,3 +14,4 @@ linkedin: emillypuan
 # github: 
 # orcid: 0000-0002-5080-2859
 description: Emilly is an undergraduate student in Civil Engineering at ITB, supporting research on tunnel boring machine (TBM) operational data analysis for subsurface geotechnical inference using machine learning. Her interests include geotechnical engineering, underground construction, and data-driven approaches in civil engineering. 
+---
