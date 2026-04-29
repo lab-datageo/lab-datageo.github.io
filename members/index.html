@@ -50,6 +50,7 @@ group: members
   {% if enddate_seconds < now_seconds %}{% continue %}{% endif %} {% endif %} {% if member.position contains "Principal"
     %}{% continue %}{% endif %} {% assign other_members=other_members | push: member %} {% endfor %} {% if
     other_members.size> 0 %}
+    <hr>
     <h4>Member</h4>
     {% for member in other_members %}
     {% include member_card.html member=member %}

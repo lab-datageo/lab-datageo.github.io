@@ -4,7 +4,7 @@
   <div class="col-sm-4">
     <img class="img-fluid" src="{{include.member.image}}" {% if include.member.altimage %}
       onmouseover="this.src='{{include.member.altimage}}';" onmouseout="this.src='{{include.member.image}}';" {% endif
-      %} alt="{{include.member.name}}" width="365" height="365" loading="lazy" decoding="async"><br>
+      %} alt="{{include.member.name}}" width="200" height="200" loading="lazy" decoding="async"><br>
     <strong>{{include.member.name}}</strong> <br>
 
     {{include.member.position | markdownify | remove: '<p>' | remove: '</p>' }} <br>
