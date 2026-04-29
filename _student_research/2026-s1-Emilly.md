@@ -1,6 +1,6 @@
 ---
 layout: student_research
-title: "Undergraduate Thesis Title: Geotechnical Condition Inference Based on Operational Data of Earth Pressure Balance Tunnel Boring Machine (EPB TBM) Using Machine Learning: A Case Study of Jakarta Mass Rapid Transit (MRT) CP104 & CP105 "
+title: "Geotechnical Condition Inference Based on Operational Data of Earth Pressure Balance Tunnel Boring Machine (EPB TBM) Using Machine Learning: A Case Study of Jakarta Mass Rapid Transit (MRT) CP104 & CP105 "
 order: 5                            # Controls card order on the page (lower = first)
 level: "S1 (Undergraduate Thesis)"        # S1 (Undergraduate Thesis) | S2 (Master's Thesis) | S3 (Doctoral Research)
 student: "Emilly Puan Nastiti "         # Required — full name of the student
