@@ -2,7 +2,7 @@
 name: Hans Pniel Julian Sitorus B.Eng.
 startdate: [2026-04-29]
 enddate: []
-image: /static/img/members/hans.jpg
+image: /static/img/members/Hans.jpg
 # altimage: /static/img/members/Fraser_pb.jpg
 position: Research Assistant
 #current:
