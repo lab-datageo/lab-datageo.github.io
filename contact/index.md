@@ -20,7 +20,7 @@ We welcome motivated ITB undergraduate and graduate students, as well as visitin
 
 <div class="col-12 col-md-6 mb-4">
 <div class="card h-100 border p-3">
-<h4 class="mb-1">Lab Data dan Komputasi Geoteknik</h4>
+<h4 class="mb-1">PT Lab Data dan Komputasi Geoteknik</h4>
 <p class="text-muted small mb-2">Office</p>
 <p class="mb-1"><strong>Office:</strong> Science Techno Park (STP), ITB — R402</p>
 <p class="mb-1">Jl. Ganesha No.15, Bandung, Jawa Barat 40132</p>
