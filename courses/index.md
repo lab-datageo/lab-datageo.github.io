@@ -26,16 +26,22 @@ Dr. Dayu’s teaching portfolio spans undergraduate and graduate courses in civi
 
 ### Undergraduate Courses – ITB Mandatory
 
++ KU1102 Introduction to Computing (2024) 
++ WI1102 Computational Thinking (2024–present) 
++ WI2002 Data Literacy and Artificial Intelligence (2024–present)
+
+## University of California, Berkeley (USA)
+
 + CE175 Geotechnical & Geoenvironmental Engineering (Graduate Student Instructor, Spring 2019)
 + CE270 Advanced Geomechanics (Graduate Student Instructor, Fall 2019)
 + CE272 Numerical Modeling in Geomechanics (Graduate Student Instructor, Spring 2020)
 
-### Short Courses & Industry Training
+## Short Courses & Industry Training
 
 + Machine Learning for Geotechnical Engineering - Balai Hidrolika dan Geoteknik Keairan (BHGK), Kementerian PU (2026)
 + Soil Mechanics- PT Komatsu Indonesia, Jakarta (CIBE ITB, 2024)
 + Geotechnical Engineering for Irrigation Practices - Balai Teknik Irigasi, Kementerian PU (CIBE ITB, 2024)
 + Machine Learning for Geotechnical Engineering - Delve Underground, Walnut Creek, CA (2024)
 + Machine Learning for Geotechnical Engineering - ENGEO, San Ramon, CA (2023)
-+ Soil Mechanics and Geotechnical Engineering for Mining - PT Kaltim Prima Coal (PT Tectona Mitra Utama, 2023)
++ Soil Mechanics and Geotechnical Engineering for Mining Practices - PT Kaltim Prima Coal (PT Tectona Mitra Utama, 2023)
 + Soil Mechanics and Geotechnical Engineering (PT Garuda Infrastruktur, 2017)
