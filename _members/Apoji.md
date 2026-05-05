@@ -7,7 +7,7 @@ image: /static/img/members/apoji.jpg
 position: Principal
 #current:
 interest: AI/ML
-email: dayu.aoji (at) itb.ac.id
+email: dayu.apoji (at) itb.ac.id
 scholar: 1ebiIaIAAAAJ
 # scopus: https://www.scopus.com/results/authorNamesList.uri?sort=count-f&src=al&s=AUTHLASTNAME%28Apoji%29+AND+AUTHFIRST%28Dayu%29
 sinta: https://sinta.kemdiktisaintek.go.id/authors/profile/6202044
