@@ -1,5 +1,5 @@
 ---
-title: Teaching Lab
+title: Courses
 layout: default
 group: courses
 ---
