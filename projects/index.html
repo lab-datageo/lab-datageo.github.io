@@ -7,38 +7,107 @@ group: projects
 <h1>Consulting Projects</h1>
 
 <p>
-  A portfolio of selected consulting projects undertaken by the Principal. Use the filters below to
-  browse projects by keyword, or toggle the grouping to organise projects by service type or market
-  sector. Click any row to view full project details.
+  A portfolio of consulting projects undertaken by the lab. Projects marked
+  <span class="badge badge-primary" style="font-size:0.75rem;">Featured</span>
+  include a full case study — click the row to view details.
 </p>
 
-<!-- ===== Grouping Toggle ===== -->
-<div class="project-controls" style="margin-bottom: 16px;">
+<!-- ===== Ongoing Projects ===== -->
+{% assign has_ongoing = false %}
+{% for p in site.projects %}
+  {% unless p.path contains "_template" %}
+    {% if p.status == "ongoing" %}{% assign has_ongoing = true %}{% endif %}
+  {% endunless %}
+{% endfor %}
+{% if site.data.projects %}
+  {% for p in site.data.projects %}
+    {% if p.status == "ongoing" %}{% assign has_ongoing = true %}{% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if has_ongoing %}
+<h5 style="color:#052049; margin-bottom:12px;">Ongoing Projects</h5>
+<div class="row mb-4">
+  {% for p in site.projects %}
+    {% unless p.path contains "_template" %}
+      {% if p.status == "ongoing" %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 border-success">
+          <div class="card-body">
+            <span class="badge badge-success mb-2">Ongoing</span>
+            <h6 class="card-title mb-1">
+              <a href="{{ p.url }}" class="text-dark">{{ p.title }}</a>
+            </h6>
+            <p class="card-text text-muted mb-2" style="font-size:0.85rem;">{{ p.client }}</p>
+            <span class="badge badge-light border">{{ p.service_type }}</span>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+  {% if site.data.projects %}
+    {% for p in site.data.projects %}
+      {% if p.status == "ongoing" %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 border-success">
+          <div class="card-body">
+            <span class="badge badge-success mb-2">Ongoing</span>
+            <h6 class="card-title mb-1">{{ p.title }}</h6>
+            <p class="card-text text-muted mb-2" style="font-size:0.85rem;">{{ p.client }}</p>
+            <span class="badge badge-light border">{{ p.service_type }}</span>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+<hr>
+{% endif %}
+
+<!-- ===== Past Projects ===== -->
+<h5 style="color:#052049; margin-bottom:12px;">Past Projects</h5>
+
+<!-- Group by -->
+<div class="project-controls" style="margin-bottom:16px;">
   <strong>Group by:</strong>
   <button class="btn btn-sm btn-outline-primary group-btn active" data-group="none">None</button>
+  <button class="btn btn-sm btn-outline-primary group-btn" data-group="year">Year</button>
   <button class="btn btn-sm btn-outline-primary group-btn" data-group="service_type">Service Type</button>
   <button class="btn btn-sm btn-outline-primary group-btn" data-group="market_sector">Market Sector</button>
 </div>
 
-<!-- ===== Keyword Filter ===== -->
-<div class="project-controls" style="margin-bottom: 24px;">
+<!-- Keyword filter -->
+<div class="project-controls" style="margin-bottom:24px;">
   <strong>Filter by keyword:</strong><br>
   <button class="btn btn-sm btn-outline-secondary keyword-btn active" data-keyword="all" style="margin-top:6px;">All</button>
   {% assign all_keywords = "" | split: "" %}
   {% for project in site.projects %}
     {% unless project.path contains "_template" %}
-      {% if project.keywords %}
-        {% assign all_keywords = all_keywords | concat: project.keywords %}
-      {% endif %}
+      {% unless project.status == "ongoing" %}
+        {% if project.keywords %}
+          {% assign all_keywords = all_keywords | concat: project.keywords %}
+        {% endif %}
+      {% endunless %}
     {% endunless %}
   {% endfor %}
+  {% if site.data.projects %}
+    {% for project in site.data.projects %}
+      {% unless project.status == "ongoing" %}
+        {% if project.keywords %}
+          {% assign all_keywords = all_keywords | concat: project.keywords %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
   {% assign unique_keywords = all_keywords | uniq | sort %}
   {% for kw in unique_keywords %}
   <button class="btn btn-sm btn-outline-secondary keyword-btn" data-keyword="{{ kw }}" style="margin-top:6px;">{{ kw }}</button>
   {% endfor %}
 </div>
 
-<!-- ===== Projects Table ===== -->
+<!-- Table -->
 <div class="table-responsive">
   <table class="table table-hover table-bordered" id="projects-table">
     <thead class="thead-dark">
@@ -52,27 +121,57 @@ group: projects
       </tr>
     </thead>
     <tbody id="projects-tbody">
-      {% assign sorted_projects = site.projects | sort: "date" | reverse %}
-      {% assign row_num = 0 %}
-      {% for project in sorted_projects %}
+
+      <!-- Featured projects from _projects/ (have detail pages) -->
+      {% for project in site.projects %}
         {% unless project.path contains "_template" %}
-          {% assign row_num = row_num | plus: 1 %}
+          {% unless project.status == "ongoing" %}
           <tr class="project-row"
               data-keywords="{{ project.keywords | join: ',' | downcase }}"
               data-service="{{ project.service_type }}"
               data-sector="{{ project.market_sector }}"
+              data-year="{{ project.date | date: '%Y' }}"
+              data-date="{{ project.date | date: '%Y%m%d' }}"
               tabindex="0"
               onclick="window.location='{{ project.url }}'"
               onkeydown="if(event.key==='Enter'||event.key===' '){window.location='{{ project.url }}';}">
-            <td class="row-num text-muted">{{ row_num }}</td>
-            <td><a href="{{ project.url }}" class="text-decoration-none text-dark"><strong>{{ project.title }}</strong></a></td>
+            <td class="row-num text-muted">–</td>
+            <td>
+              <a href="{{ project.url }}" class="text-decoration-none text-dark">
+                <strong>{{ project.title }}</strong>
+              </a>
+              <span class="badge badge-primary ml-1" style="font-size:0.7rem; vertical-align:middle;">Featured</span>
+            </td>
             <td>{{ project.client }}</td>
             <td>{{ project.service_type }}</td>
             <td>{{ project.market_sector }}</td>
             <td>{{ project.date | date: "%b %Y" }}</td>
           </tr>
+          {% endunless %}
         {% endunless %}
       {% endfor %}
+
+      <!-- Bulk projects from _data/projects.yml (table only) -->
+      {% if site.data.projects %}
+        {% for project in site.data.projects %}
+          {% unless project.status == "ongoing" %}
+          <tr class="project-row"
+              data-keywords="{{ project.keywords | join: ',' | downcase }}"
+              data-service="{{ project.service_type }}"
+              data-sector="{{ project.market_sector }}"
+              data-year="{{ project.date | date: '%Y' }}"
+              data-date="{{ project.date | date: '%Y%m%d' }}">
+            <td class="row-num text-muted">–</td>
+            <td><strong>{{ project.title }}</strong></td>
+            <td>{{ project.client }}</td>
+            <td>{{ project.service_type }}</td>
+            <td>{{ project.market_sector }}</td>
+            <td>{{ project.date | date: "%b %Y" }}</td>
+          </tr>
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+
     </tbody>
   </table>
 </div>
@@ -86,13 +185,24 @@ document.addEventListener('DOMContentLoaded', function () {
   var currentKeyword = 'all';
   var currentGroup   = 'none';
 
-  /* ---- helpers ---- */
+  /* sort all rows by date descending so both sources are interleaved correctly */
+  function sortRows() {
+    var tbody = document.getElementById('projects-tbody');
+    var rows  = Array.from(tbody.querySelectorAll('.project-row'));
+    rows.sort(function (a, b) {
+      var da = a.getAttribute('data-date') || '0';
+      var db = b.getAttribute('data-date') || '0';
+      return db.localeCompare(da);
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+  }
+
   function getRows() {
     return Array.from(document.querySelectorAll('.project-row'));
   }
 
   function applyFilters() {
-    var rows = getRows();
+    var rows    = getRows();
     var visible = [];
 
     rows.forEach(function (row) {
@@ -102,26 +212,27 @@ document.addEventListener('DOMContentLoaded', function () {
       if (show) visible.push(row);
     });
 
-    // Show/hide empty-state message
     document.getElementById('no-results').style.display = visible.length === 0 ? '' : 'none';
-
     applyGrouping(visible);
     updateRowNumbers(visible);
   }
 
   function applyGrouping(visibleRows) {
-    // Remove existing group headers before (re)applying
     document.querySelectorAll('.project-group-header').forEach(function (el) { el.remove(); });
-
     if (currentGroup === 'none') return;
 
-    var attr = currentGroup === 'service_type' ? 'data-service' : 'data-sector';
+    var attrMap = {
+      year:          'data-year',
+      service_type:  'data-service',
+      market_sector: 'data-sector'
+    };
+    var attr      = attrMap[currentGroup];
     var lastGroup = null;
 
     visibleRows.forEach(function (row) {
       var groupVal = row.getAttribute(attr) || 'Uncategorized';
       if (groupVal !== lastGroup) {
-        var headerRow = document.createElement('tr');
+        var headerRow  = document.createElement('tr');
         headerRow.className = 'project-group-header';
         var headerCell = document.createElement('td');
         headerCell.setAttribute('colspan', '6');
@@ -141,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---- keyword buttons ---- */
+  /* keyword buttons */
   document.querySelectorAll('.keyword-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.keyword-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -151,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- grouping buttons ---- */
+  /* grouping buttons */
   document.querySelectorAll('.group-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.group-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -162,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* initial render */
+  sortRows();
   applyFilters();
 });
 </script>
@@ -176,6 +288,9 @@ document.addEventListener('DOMContentLoaded', function () {
   border-color: #052049;
 }
 #projects-table .project-row {
+  cursor: default;
+}
+#projects-table .project-row[onclick] {
   cursor: pointer;
 }
 #projects-table .project-row:hover td {
