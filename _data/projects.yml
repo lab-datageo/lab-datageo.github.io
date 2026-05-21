@@ -1,0 +1,14 @@
+# Bulk project entries — appear in the table on the Projects page.
+# For projects that need a full detail page (case study), create a file in _projects/ instead.
+#
+# Required : title, date (YYYY-MM-DD), client, service_type, market_sector
+# Optional : status (ongoing | completed — default: completed), keywords
+
+- title: "CPT Analysis"
+  date: "2025-12-12"
+  client: "Ministry of Public Works"
+  service_type: "Foundation Engineering"
+  market_sector: "Infrastructure"
+  keywords:
+    - CPT
+    - foundation
