@@ -2,7 +2,7 @@
 title: "Hybrid Monitoring of Soil Water Content at the Cipularang Toll Road via Remote Satellite Sensing and Embedded Sensors"
 order: 2                            # Controls card order on the page (lower = first)
 type: "Collaboration"              # Label shown on the badge (e.g. Funded Research | Collaboration)
-funder: "Center for Infrastructure and Built Environment (CIBE)"        # Required — full name of the funder
+funder: ""        # Required — full name of the funder
 scheme: ""          # Optional — e.g. Penelitian Dasar (PD)
 period: "September 2024 – March 2025"                  # Required — project duration
 amount: ""            # Optional — omit if confidential
