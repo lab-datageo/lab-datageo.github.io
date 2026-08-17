@@ -78,33 +78,24 @@ group: projects
   <button class="btn btn-sm btn-outline-primary group-btn" data-group="market_sector">Market Sector</button>
 </div>
 
-<!-- Keyword filter -->
+<!-- Keyword filter (buttons are built in JS from keywords shared by 2+ projects,
+     so one-off project-specific tags don't clutter this row) -->
 <div class="project-controls" style="margin-bottom:24px;">
   <strong>Filter by keyword:</strong><br>
   <button class="btn btn-sm btn-outline-secondary keyword-btn active" data-keyword="all" style="margin-top:6px;">All</button>
-  {% assign all_keywords = "" | split: "" %}
-  {% for project in site.projects %}
-    {% unless project.path contains "_template" %}
-      {% unless project.status == "ongoing" %}
-        {% if project.keywords %}
-          {% assign all_keywords = all_keywords | concat: project.keywords %}
-        {% endif %}
-      {% endunless %}
-    {% endunless %}
-  {% endfor %}
-  {% if site.data.projects %}
-    {% for project in site.data.projects %}
-      {% unless project.status == "ongoing" %}
-        {% if project.keywords %}
-          {% assign all_keywords = all_keywords | concat: project.keywords %}
-        {% endif %}
-      {% endunless %}
-    {% endfor %}
-  {% endif %}
-  {% assign unique_keywords = all_keywords | uniq | sort %}
-  {% for kw in unique_keywords %}
-  <button class="btn btn-sm btn-outline-secondary keyword-btn" data-keyword="{{ kw }}" style="margin-top:6px;">{{ kw }}</button>
-  {% endfor %}
+  <span id="keyword-filters"></span>
+</div>
+
+<!-- Rows per page -->
+<div class="project-controls" style="margin-bottom:24px;">
+  <strong>Rows per page:</strong>
+  <select id="page-size-select" class="form-control form-control-sm d-inline-block" style="width:auto;">
+    <option value="10" selected>10</option>
+    <option value="15">15</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="all">All</option>
+  </select>
 </div>
 
 <!-- Table -->
@@ -180,10 +171,17 @@ group: projects
   <em>No projects match the selected keyword.</em>
 </div>
 
+<nav aria-label="Projects pagination" id="projects-pagination-wrap" style="margin-top:16px; display:none;">
+  <ul class="pagination pagination-sm justify-content-center" id="projects-pagination"></ul>
+</nav>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var currentKeyword = 'all';
   var currentGroup   = 'none';
+  var pageSize       = 15;   // 'all' means no paging
+  var currentPage    = 1;
+  var filteredRows   = [];
 
   /* sort all rows by date descending so both sources are interleaved correctly */
   function sortRows() {
@@ -201,20 +199,70 @@ document.addEventListener('DOMContentLoaded', function () {
     return Array.from(document.querySelectorAll('.project-row'));
   }
 
-  function applyFilters() {
-    var rows    = getRows();
-    var visible = [];
+  function titleCase(str) {
+    return str.replace(/\w\S*/g, function (t) { return t.charAt(0).toUpperCase() + t.slice(1); });
+  }
 
-    rows.forEach(function (row) {
-      var kws  = row.getAttribute('data-keywords') || '';
-      var show = (currentKeyword === 'all') || (kws.indexOf(currentKeyword.toLowerCase()) !== -1);
-      row.style.display = show ? '' : 'none';
-      if (show) visible.push(row);
+  /* Build keyword filter buttons from keywords shared by 2+ projects only —
+     the raw per-project keyword list runs into the hundreds (mostly one-off
+     client/location tags), which is unusable as a filter row. */
+  function buildKeywordButtons() {
+    var freq = {};
+    getRows().forEach(function (row) {
+      (row.getAttribute('data-keywords') || '').split(',').forEach(function (kw) {
+        kw = kw.trim();
+        if (!kw) return;
+        freq[kw] = (freq[kw] || 0) + 1;
+      });
     });
 
-    document.getElementById('no-results').style.display = visible.length === 0 ? '' : 'none';
-    applyGrouping(visible);
-    updateRowNumbers(visible);
+    var keywords = Object.keys(freq).filter(function (kw) { return freq[kw] >= 2; }).sort();
+    var container = document.getElementById('keyword-filters');
+    keywords.forEach(function (kw) {
+      var btn = document.createElement('button');
+      btn.className = 'btn btn-sm btn-outline-secondary keyword-btn';
+      btn.setAttribute('data-keyword', kw);
+      btn.style.marginTop = '6px';
+      btn.textContent = titleCase(kw);
+      container.appendChild(btn);
+    });
+
+    /* keyword buttons (including the static "All" button) */
+    document.querySelectorAll('.keyword-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.keyword-btn').forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        currentKeyword = this.getAttribute('data-keyword');
+        applyFilters();
+      });
+    });
+  }
+
+  function applyFilters() {
+    filteredRows = getRows().filter(function (row) {
+      var kws = (row.getAttribute('data-keywords') || '').split(',');
+      return currentKeyword === 'all' || kws.indexOf(currentKeyword.toLowerCase()) !== -1;
+    });
+    currentPage = 1;
+    renderPage();
+  }
+
+  function renderPage() {
+    getRows().forEach(function (row) { row.style.display = 'none'; });
+
+    var size       = pageSize === 'all' ? filteredRows.length : pageSize;
+    var totalPages = Math.max(1, Math.ceil(filteredRows.length / (size || 1)));
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    var start    = (currentPage - 1) * size;
+    var pageRows = pageSize === 'all' ? filteredRows : filteredRows.slice(start, start + size);
+
+    pageRows.forEach(function (row) { row.style.display = ''; });
+
+    document.getElementById('no-results').style.display = filteredRows.length === 0 ? '' : 'none';
+    applyGrouping(pageRows);
+    updateRowNumbers(pageRows, start);
+    renderPagination(totalPages);
   }
 
   function applyGrouping(visibleRows) {
@@ -245,22 +293,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function updateRowNumbers(visibleRows) {
+  function updateRowNumbers(visibleRows, start) {
     visibleRows.forEach(function (row, idx) {
       var numCell = row.querySelector('.row-num');
-      if (numCell) numCell.textContent = idx + 1;
+      if (numCell) numCell.textContent = start + idx + 1;
     });
   }
 
-  /* keyword buttons */
-  document.querySelectorAll('.keyword-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.keyword-btn').forEach(function (b) { b.classList.remove('active'); });
-      this.classList.add('active');
-      currentKeyword = this.getAttribute('data-keyword');
-      applyFilters();
-    });
-  });
+  function renderPagination(totalPages) {
+    var wrap      = document.getElementById('projects-pagination-wrap');
+    var container = document.getElementById('projects-pagination');
+    container.innerHTML = '';
+
+    if (totalPages <= 1) { wrap.style.display = 'none'; return; }
+    wrap.style.display = '';
+
+    function addItem(label, page, disabled, active) {
+      var li = document.createElement('li');
+      li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+      var a = document.createElement('a');
+      a.className = 'page-link';
+      a.href = '#';
+      a.textContent = label;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (disabled || active) return;
+        currentPage = page;
+        renderPage();
+        document.getElementById('projects-table').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      container.appendChild(li);
+    }
+
+    addItem('Previous', currentPage - 1, currentPage === 1, false);
+    for (var p = 1; p <= totalPages; p++) {
+      addItem(String(p), p, false, p === currentPage);
+    }
+    addItem('Next', currentPage + 1, currentPage === totalPages, false);
+  }
 
   /* grouping buttons */
   document.querySelectorAll('.group-btn').forEach(function (btn) {
@@ -268,12 +339,21 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.group-btn').forEach(function (b) { b.classList.remove('active'); });
       this.classList.add('active');
       currentGroup = this.getAttribute('data-group');
-      applyFilters();
+      currentPage  = 1;
+      renderPage();
     });
+  });
+
+  /* rows-per-page select */
+  document.getElementById('page-size-select').addEventListener('change', function () {
+    pageSize    = this.value === 'all' ? 'all' : parseInt(this.value, 10);
+    currentPage = 1;
+    renderPage();
   });
 
   /* initial render */
   sortRows();
+  buildKeywordButtons();
   applyFilters();
 });
 </script>
