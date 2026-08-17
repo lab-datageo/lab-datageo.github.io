@@ -12,3 +12,380 @@
   keywords:
     - CPT
     - foundation
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Entries below sourced from "Website Project List.xlsx" (project register,
+# PROJECT-type entries only — internal research, short courses, and site
+# visits excluded per the source file's own filter). Multi-year / multi-phase
+# engagements consolidated into a single entry. Dates use YYYY-01-01 where
+# only the year was recorded.
+# ─────────────────────────────────────────────────────────────────────────────
+
+- title: "Indonesia Seismic Resilience Study (2022–2025)"
+  date: "2025-01-01"
+  client: "World Bank"
+  service_type: "Risk Assessment"
+  market_sector: "Infrastructure"
+  keywords:
+    - seismic resilience
+    - risk assessment
+    - indonesia
+    - world bank
+
+- title: "IDRIP Earthquake Early Warning System (EEWS) Development Review (2022–2023)"
+  date: "2023-01-01"
+  client: "World Bank"
+  service_type: "Risk Assessment"
+  market_sector: "Infrastructure"
+  keywords:
+    - earthquake early warning system
+    - eews
+    - idrip
+    - indonesia
+
+- title: "Martabe Tailing Dam Trial Consolidation – Pre-FS to BED"
+  date: "2024-01-01"
+  client: "AR (Agincourt Resources)"
+  service_type: "Ground Improvement"
+  market_sector: "Mining"
+  keywords:
+    - tailing dam
+    - trial consolidation
+    - ground improvement
+    - martabe
+
+- title: "Mempawah Hauling Road Geotechnical Support – Tender Support to Supervision"
+  date: "2024-01-01"
+  client: "SML"
+  service_type: "Ground Improvement"
+  market_sector: "Mining"
+  keywords:
+    - hauling road
+    - geotechnical supervision
+    - mempawah
+
+- title: "DLH Office Building Foundation DED"
+  date: "2024-01-01"
+  client: "DLH"
+  service_type: "Foundation Engineering"
+  market_sector: "Building"
+  keywords:
+    - office building
+    - foundation design
+    - jakarta
+
+- title: "Global Building Code Resilience Study"
+  date: "2024-01-01"
+  client: "World Bank"
+  service_type: "Risk Assessment"
+  market_sector: "Infrastructure"
+  keywords:
+    - building code
+    - seismic resilience
+    - global
+
+- title: "Palikanci Toll Road Slope Stabilization – DED and Monitoring"
+  date: "2024-01-01"
+  client: "JMTM"
+  service_type: "Slope Stability"
+  market_sector: "Transportation"
+  keywords:
+    - slope stabilization
+    - toll road
+    - monitoring
+    - palikanci
+
+- title: "Tursina Pier Dredging Geotechnical Advisory"
+  date: "2024-01-01"
+  client: "PKT"
+  service_type: "Foundation Engineering"
+  market_sector: "Infrastructure"
+  keywords:
+    - pier
+    - dredging
+    - geotechnical advisory
+    - tursina
+
+- title: "BI Residential Houses Geotechnical Survey"
+  date: "2024-01-01"
+  client: "Bank Indonesia"
+  service_type: "Site Investigation"
+  market_sector: "Building"
+  keywords:
+    - residential housing
+    - geotechnical survey
+    - medan
+    - serang
+    - tarakan
+    - makassar
+
+- title: "Long Bagun PLTD Geotechnical Survey"
+  date: "2024-01-01"
+  client: "PLN Indonesia Power"
+  service_type: "Site Investigation"
+  market_sector: "Energy"
+  keywords:
+    - power plant
+    - pltd
+    - geotechnical survey
+    - long bagun
+
+- title: "Jakarta Flood Control Infrastructure Geotechnical Review"
+  date: "2024-01-01"
+  client: "DSDA Jakarta"
+  service_type: "Foundation Engineering"
+  market_sector: "Water"
+  keywords:
+    - flood control
+    - geotechnical review
+    - jakarta
+
+- title: "Ramba Jetty Foundation Assessment"
+  date: "2024-01-01"
+  client: "Medco Energi"
+  service_type: "Foundation Engineering"
+  market_sector: "Energy"
+  keywords:
+    - jetty
+    - foundation assessment
+    - ramba
+
+- title: "Tenayan PLTGU Machine Foundation Study"
+  date: "2025-01-01"
+  client: "MRPR"
+  service_type: "Foundation Engineering"
+  market_sector: "Energy"
+  keywords:
+    - machine foundation
+    - power plant
+    - pltgu
+    - tenayan
+
+- title: "Masela Diversion Road Geotechnical BED"
+  date: "2025-01-01"
+  client: "Inpex"
+  service_type: "Site Investigation"
+  market_sector: "Energy"
+  keywords:
+    - diversion road
+    - geotechnical
+    - masela
+
+- title: "Pomalaa Electric Substation Foundation Review"
+  date: "2025-01-01"
+  client: "Antam"
+  service_type: "Foundation Engineering"
+  market_sector: "Energy"
+  keywords:
+    - electric substation
+    - foundation review
+    - pomalaa
+
+- title: "Tengah Well-Site Station Foundation DED"
+  date: "2025-01-01"
+  client: "Medco Energi"
+  service_type: "Foundation Engineering"
+  market_sector: "Energy"
+  keywords:
+    - well-site station
+    - foundation design
+    - tengah
+
+- title: "Manyar Smelter Iron Silicate Lab Test"
+  date: "2025-01-01"
+  client: "Freeport Indonesia"
+  service_type: "Site Investigation"
+  market_sector: "Mining"
+  keywords:
+    - smelter
+    - iron silicate
+    - laboratory test
+    - manyar
+
+- title: "Sidrap High-Voltage Transmission Line Geotechnical Survey"
+  date: "2025-01-01"
+  client: "PLN"
+  service_type: "Site Investigation"
+  market_sector: "Energy"
+  keywords:
+    - transmission line
+    - geotechnical survey
+    - sidrap
+
+- title: "Sulbagsel High-Voltage Submarine Cable Geotechnical FS"
+  date: "2025-01-01"
+  client: "PLN"
+  service_type: "Site Investigation"
+  market_sector: "Energy"
+  keywords:
+    - submarine cable
+    - feasibility study
+    - sulbagsel
+
+- title: "Ngurah Rai Airport Connecting Bridge Foundation Review"
+  date: "2025-01-01"
+  client: "Angkasa Pura (AP)"
+  service_type: "Foundation Engineering"
+  market_sector: "Transportation"
+  keywords:
+    - airport
+    - connecting bridge
+    - foundation review
+    - ngurah rai
+
+- title: "Minahasa Tenggara RSUD Foundation BED"
+  date: "2025-01-01"
+  client: "Ministry of Health (Kemenkes)"
+  service_type: "Foundation Engineering"
+  market_sector: "Building"
+  keywords:
+    - hospital
+    - foundation design
+    - minahasa tenggara
+
+- title: "Lahat Container Yard Building Foundation DED"
+  date: "2025-01-01"
+  client: "Adaro"
+  service_type: "Foundation Engineering"
+  market_sector: "Mining"
+  keywords:
+    - container yard
+    - building foundation
+    - lahat
+
+- title: "Sultan Hasanuddin Airport Pavement Geotechnical DED"
+  date: "2025-01-01"
+  client: "Angkasa Pura (AP)"
+  service_type: "Foundation Engineering"
+  market_sector: "Transportation"
+  keywords:
+    - airport pavement
+    - geotechnical design
+    - sultan hasanuddin
+
+- title: "Myanmar Seismic Resilience Workshop"
+  date: "2026-01-01"
+  client: "World Bank"
+  service_type: "Risk Assessment"
+  market_sector: "Infrastructure"
+  keywords:
+    - seismic resilience
+    - workshop
+    - myanmar
+
+- title: "Kyrgyz Republic Seismic Resilience Study"
+  date: "2026-01-01"
+  client: "Asian Development Bank (ADB)"
+  service_type: "Risk Assessment"
+  market_sector: "Infrastructure"
+  keywords:
+    - seismic resilience
+    - study
+    - kyrgyz republic
+
+- title: "Suralaya PLTU Machine Foundation Construction Support"
+  date: "2026-01-01"
+  client: "PLN Indonesia Power"
+  service_type: "Foundation Engineering"
+  market_sector: "Energy"
+  keywords:
+    - machine foundation
+    - construction support
+    - pltu
+    - suralaya
+
+- title: "Soekarno-Hatta Airport MRO Ground Improvement Tender Support"
+  date: "2026-01-01"
+  client: "Angkasa Pura (AP)"
+  service_type: "Ground Improvement"
+  market_sector: "Transportation"
+  keywords:
+    - airport
+    - ground improvement
+    - tender support
+    - soekarno-hatta
+
+- title: "Suban-Grissik Pipeline Geohazard Assessment"
+  date: "2026-01-01"
+  client: "Medco Energi"
+  service_type: "Risk Assessment"
+  market_sector: "Energy"
+  keywords:
+    - pipeline
+    - geohazard assessment
+    - suban-grissik
+
+- title: "Patimban Port Ground Improvement Review"
+  date: "2026-01-01"
+  client: "Ministry of Transportation (Kemenhub)"
+  service_type: "Ground Improvement"
+  market_sector: "Transportation"
+  keywords:
+    - port
+    - ground improvement
+    - review
+    - patimban
+
+- title: "Manado Jetty Foundation DED"
+  date: "2026-01-01"
+  client: "PTHWT"
+  service_type: "Foundation Engineering"
+  market_sector: "Infrastructure"
+  keywords:
+    - jetty
+    - foundation design
+    - manado
+
+- title: "Kelai PLTA Seismic and Geotechnical ToR Review"
+  date: "2026-01-01"
+  client: "Asian Development Bank (ADB)"
+  service_type: "Risk Assessment"
+  market_sector: "Energy"
+  keywords:
+    - hydropower
+    - seismic hazard
+    - geotechnical
+    - terms of reference
+    - kelai
+
+- title: "IKN Reservoir Foundation and Retaining Wall Review"
+  date: "2026-01-01"
+  client: "Otorita IKN (OIKN)"
+  service_type: "Foundation Engineering"
+  market_sector: "Water"
+  keywords:
+    - reservoir
+    - retaining wall
+    - foundation review
+    - ikn
+
+- title: "Yogyakarta Building Site-Specific Seismic Hazard Study"
+  date: "2026-01-01"
+  client: "Bank Indonesia"
+  service_type: "Risk Assessment"
+  market_sector: "Building"
+  keywords:
+    - seismic hazard
+    - site-specific study
+    - yogyakarta
+
+- title: "Baucau Cultural Heritage Center Building Foundation DED"
+  date: "2026-01-01"
+  client: "SEAC"
+  service_type: "Foundation Engineering"
+  market_sector: "Building"
+  keywords:
+    - cultural heritage
+    - building foundation
+    - baucau
+
+- title: "Cipularang Toll Road Slope Inventory and Inspection Survey"
+  date: "2026-01-01"
+  client: "JMTM"
+  service_type: "Slope Stability"
+  market_sector: "Transportation"
+  keywords:
+    - slope inventory
+    - inspection survey
+    - toll road
+    - cipularang
