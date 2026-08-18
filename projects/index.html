@@ -179,7 +179,7 @@ group: projects
 document.addEventListener('DOMContentLoaded', function () {
   var currentKeyword = 'all';
   var currentGroup   = 'none';
-  var pageSize       = 15;   // 'all' means no paging
+  var pageSize       = 10;   // 'all' means no paging — must match the <select> "selected" option
   var currentPage    = 1;
   var filteredRows   = [];
 
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function applyFilters() {
     filteredRows = getRows().filter(function (row) {
-      var kws = (row.getAttribute('data-keywords') || '').split(',');
+      var kws = (row.getAttribute('data-keywords') || '').split(',').map(function (kw) { return kw.trim(); });
       return currentKeyword === 'all' || kws.indexOf(currentKeyword.toLowerCase()) !== -1;
     });
     currentPage = 1;
@@ -260,12 +260,12 @@ document.addEventListener('DOMContentLoaded', function () {
     pageRows.forEach(function (row) { row.style.display = ''; });
 
     document.getElementById('no-results').style.display = filteredRows.length === 0 ? '' : 'none';
-    applyGrouping(pageRows);
+    applyGrouping(pageRows, start);
     updateRowNumbers(pageRows, start);
     renderPagination(totalPages);
   }
 
-  function applyGrouping(visibleRows) {
+  function applyGrouping(visibleRows, start) {
     document.querySelectorAll('.project-group-header').forEach(function (el) { el.remove(); });
     if (currentGroup === 'none') return;
 
@@ -274,8 +274,12 @@ document.addEventListener('DOMContentLoaded', function () {
       service_type:  'data-service',
       market_sector: 'data-sector'
     };
-    var attr      = attrMap[currentGroup];
-    var lastGroup = null;
+    var attr = attrMap[currentGroup];
+
+    /* seed with the group of the row just before this page, so a group that
+       spans a page boundary doesn't get its header printed again on the next page */
+    var prevRow   = start > 0 ? filteredRows[start - 1] : null;
+    var lastGroup = prevRow ? (prevRow.getAttribute(attr) || 'Uncategorized') : null;
 
     visibleRows.forEach(function (row) {
       var groupVal = row.getAttribute(attr) || 'Uncategorized';
