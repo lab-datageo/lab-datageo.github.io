@@ -25,7 +25,7 @@ We welcome motivated ITB undergraduate and graduate students, as well as visitin
 <p class="mb-1"><strong>Office:</strong> Science Techno Park (STP), ITB — R402</p>
 <p class="mb-1">Jl. Ganesha No.15, Bandung, Jawa Barat 40132</p>
 <p class="mb-1">Indonesia</p>
-<p class="mb-3"><strong>Email:</strong> <a href="mailto:contact@lab-datageo.com">contact@lab-datageo.com</a></p>
+<p class="mb-3"><strong>Email:</strong> <a href="mailto:admin@lab-datageo.com">admin@lab-datageo.com</a></p>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9732250108013!2d107.60893000000002!3d-6.893806000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e79861a09a0f%3A0x7edcd4dc41c3c5e1!2sGedung%20Science%20and%20Techno%20Park%20(STP)%20ITB!5e0!3m2!1sen!2sid!4v1774529054530!5m2!1sen!2sid" width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 </div>
