@@ -5,3 +5,4 @@ Gemfile.lock
 vendor/
 .ipynb_checkpoints/
 tmp/
+.jekyll-cache/

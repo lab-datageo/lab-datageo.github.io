@@ -1,7 +1,7 @@
 ---
 name: Stefani Karyani, B.Eng.
 startdate: [2024-09-09]
-enddate: []
+enddate: [2026-08-01]
 image: /static/img/members/karin.jpg
 position: Research Assistant
 email: stevanikaryani (at) gmail.com

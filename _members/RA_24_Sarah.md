@@ -1,7 +1,7 @@
 ---
 name: Sarah Gustiarini Rifdah, B.Eng., M.Eng.
 startdate: [2024-03-01]
-enddate: []
+enddate: [2026-03-31]
 image: /static/img/members/sarah.jpg
 position: Research Assistant
 email: sarah.rifdah (at) lab-datageo.com

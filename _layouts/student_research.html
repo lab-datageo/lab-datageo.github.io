@@ -13,7 +13,7 @@
       </div>
 
       <!-- Thesis title -->
-      <h2 class="mb-1" style="font-weight:700;">{{ page.title }}</h2>
+      <h1 class="mb-1">{{ page.title }}</h1>
 
       <!-- Status badge -->
       <div class="mb-3">
@@ -58,41 +58,28 @@
       <hr>
 
       <!-- Abstract -->
-      <h4 class="mt-4 mb-3" style="color:#052049;">Brief Abstract</h4>
+      <h2 class="mt-4 mb-3">Brief Abstract</h2>
 
       {% if page.abstract_background %}
-      <div class="mb-3">
-        <h6 style="font-weight:700; color:#333;">Background</h6>
-        <p style="font-size:0.95rem;">{{ page.abstract_background }}</p>
-      </div>
+      <p style="font-size:0.95rem;"><strong>Background.</strong> {{ page.abstract_background }}</p>
       {% endif %}
 
       {% if page.abstract_objective %}
-      <div class="mb-3">
-        <h6 style="font-weight:700; color:#333;">Objective</h6>
-        <p style="font-size:0.95rem;">{{ page.abstract_objective }}</p>
-      </div>
+      <p style="font-size:0.95rem;"><strong>Objective.</strong> {{ page.abstract_objective }}</p>
       {% endif %}
 
       {% if page.abstract_methodology %}
-      <div class="mb-3">
-        <h6 style="font-weight:700; color:#333;">Methodology</h6>
-        <p style="font-size:0.95rem;">{{ page.abstract_methodology }}</p>
-      </div>
+      <p style="font-size:0.95rem;"><strong>Methodology.</strong> {{ page.abstract_methodology }}</p>
       {% endif %}
 
       {% if page.abstract_contribution %}
-      <div class="mb-3">
-        <h6 style="font-weight:700; color:#333;">Key Contribution</h6>
-        <p style="font-size:0.95rem;">{{ page.abstract_contribution }}</p>
-      </div>
+      <p style="font-size:0.95rem;"><strong>Key Contribution.</strong> {{ page.abstract_contribution }}</p>
       {% endif %}
 
       <!-- Figure -->
       {% if page.figure %}
       <hr>
       <div class="mt-4 text-center">
-        <h5 style="color:#052049;">Key Figure</h5>
         {% assign fig_ext = page.figure | split: "." | last | downcase %}
         {% if fig_ext == "gif" or fig_ext == "mp4" or fig_ext == "webm" %}
           {% if fig_ext == "mp4" or fig_ext == "webm" %}
@@ -100,10 +87,10 @@
             <source src="{{ page.figure }}" type="video/{{ fig_ext }}">
           </video>
           {% else %}
-          <img src="{{ page.figure }}" class="img-fluid rounded shadow-sm" style="max-height:420px;" alt="Key Figure">
+          <img src="{{ page.figure }}" class="img-fluid rounded shadow-sm" style="max-height:420px;" alt="{{ page.title }}">
           {% endif %}
         {% else %}
-        <img src="{{ page.figure }}" class="img-fluid rounded shadow-sm" style="max-height:420px;" alt="Key Figure">
+        <img src="{{ page.figure }}" class="img-fluid rounded shadow-sm" style="max-height:420px;" alt="{{ page.title }}">
         {% endif %}
         {% if page.figure_caption %}
         <p class="text-muted mt-2" style="font-size:0.85rem;">{{ page.figure_caption }}</p>

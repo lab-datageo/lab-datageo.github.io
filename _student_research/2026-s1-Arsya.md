@@ -6,7 +6,7 @@ level: "S1 (Undergraduate Thesis)"        # S1 (Undergraduate Thesis) | S2 (Mast
 student: "Arsya Maulana Primaldy"         # Required — full name of the student
 supervisor: "Dr. Dayu Apoji, S.T.,M.T.,M.Sc.,Ph.D."   # Required — full name of the supervisor(s)
 year: "2026"                         # Start year or expected graduation year
-status: "Ongoing"                    # Ongoing → green badge | Completed → grey badge
+status: "Completed"                    # Ongoing → green badge | Completed → grey badge
 keywords:                            # Optional — shown as small badges on the card and detail page
   - "Offshore Foundation"
   - "Python"

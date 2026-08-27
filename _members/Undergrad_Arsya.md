@@ -1,15 +1,13 @@
 ---
 name: Arsya Maulana Primaldy
 startdate: [2026-02-01]
-enddate: []
+enddate: [2026-08-01]
 image: /static/img/members/arsya1to1.jpg
-# altimage: /static/img/members/Fraser_pb.jpg
 position: Undergraduate Research Assistant
 #current:
 email: arsyamprimaldy (at) gmail.com
 # scholar: 1ebiIaIAAAAJ
 # FTSL: daa
-#twitter: fraser_lab
 linkedin: arsyamprimaldy
 github: arsyamprimaldy
 # orcid: 0000-0002-5080-2859

@@ -1,4 +1,52 @@
 
+/* ── Navbar brand ───────────────────────────────────────────────
+   Full lab name is long, so scale it down on narrow viewports. */
+.navbar-brand {
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: normal;
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+}
+
+/* ── Heading system ─────────────────────────────────────────────
+   H1 — section heading : 2 pt larger than body text, bold
+   H2 — sub-section     : same size as body text, bold
+   h3–h6 are not part of the system; they fall back to the H2
+   treatment so no heading ever renders larger than H1. */
+h1,
+.h1 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #052049;
+  margin-top: 1.75rem;
+  margin-bottom: 0.6rem;
+}
+
+h2,
+.h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+h1:first-child,
+h2:first-child {
+  margin-top: 0;
+}
+
+
 .sr-card {
   cursor: pointer;
   transition: box-shadow 0.2s;

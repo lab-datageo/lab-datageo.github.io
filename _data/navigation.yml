@@ -22,22 +22,6 @@
   link: "/courses"
   group: courses
 
-# - name: news
-#   link: "/news"
-#   group: news
-
-# - name: join
-#   link: "/join"
-#   group: join
-
 - name: contact
   link: "/contact"
   group: contact
-
-# - name: about
-#   link: "/about"
-#   group: about
-
-# - name: private
-#   link: "https://sites.google.com/fraserlab.com/fraserlab-private/"
-#   group: private

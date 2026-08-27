@@ -6,7 +6,7 @@ level: "S2 (Master's Thesis)"        # S1 (Undergraduate Thesis) | S2 (Master's 
 student: "Stefani Karyani Hia"         # Required — full name of the student
 supervisor: "Prof. Dr. Ir. Masyhur Irsyam, M.S.E. & Dayu Apoji, S.T., M.T., M.Sc., Ph.D."   # Required — full name of the supervisor(s)
 year: "2026"                         # Start year or expected graduation year
-status: "Ongoing"                    # Ongoing → green badge | Completed → grey badge
+status: "Completed"                    # Ongoing → green badge | Completed → grey badge
 keywords:                            # Optional — shown as small badges on the card and detail page
   - "PSHA"
   - "Uncertainty Analysis"

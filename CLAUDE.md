@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## About This Site
 
-Jekyll static site for **Lab Data dan Komputasi Geoteknik** (Lab DataGeo) at ITB, hosted on GitHub Pages at `lab-datageo.github.io`. Uses Bootstrap 4.4.1 for styling. Brand color: `#052049` (dark navy).
+Jekyll static site for **Lab Data dan Komputasi Geoteknik** at ITB, hosted on GitHub Pages at `lab-datageo.github.io`. Uses Bootstrap 4.4.1 for styling. Brand color: `#052049` (dark navy).
 
 ## Development Commands
 

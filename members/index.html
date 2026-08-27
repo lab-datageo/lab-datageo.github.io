@@ -4,55 +4,86 @@ layout: members
 group: members
 ---
 
-<h3>Background</h3>
-<p>
-  Geotechnical engineering plays a critical role in the safety and performance of infrastructure systems, particularly
-  in regions characterized by complex geomaterials and exposure to natural hazards. At the same time, it is a major
-  source of uncertainty and unforeseen challenges, which can lead to construction risks, operational disruptions, and,
-  consequently, cost overruns or the loss of capital assets. Conventional approaches are often limited by simplified
-  assumptions, sparse data, and the inherent uncertainty of subsurface conditions.
-</p>
-<p>
-  Rapid development introduces greater complexity in engineering challenges while also increasing exposure to
-  natural
-  hazards, thereby demanding more accurate, reliable, and scalable solutions. Advances in data acquisition technologies,
-  data analytics, and computational methods provide new opportunities to better characterize ground conditions,
-  understand the behavior of engineered systems, and support more robust decision-making. This lab group was established
-  to address these challenges by integrating fundamental geotechnical engineering with data-driven and computational
-  approaches. The aim is to bridge the gap between research and practice, enabling improved understanding, engineering
-  design, and risk-informed decision-making for complex ground and infrastructure systems.
-</p>
-<hr>
+{% comment %}
+Split the roster into three groups by end date:
+  current  — enddate is empty, or its last value is still in the future
+  alumni   — last enddate has passed
+Principal is pulled out of the current group and shown first.
+{% endcomment %}
 
-
-
-{% assign pi_members = "" | split: "" %}
-{% for member in site.members %}
-{% if member.enddate != empty and member.startdate.size == member.enddate.size %}
-{% assign last_enddate = member.enddate | last %}
-{% assign enddate_seconds = last_enddate | date: "%s" %}
 {% assign now_seconds = "now" | date: "%s" %}
-{% if enddate_seconds < now_seconds %}{% continue %}{% endif %} {% endif %} {% unless member.position
-  contains "Principal" %}{% continue %}{% endunless %} {% assign pi_members=pi_members | push: member %} {% endfor %} {%
-  if pi_members.size> 0 %}
-  <h4>Principal</h4>
-  {% for member in pi_members %}
-  {% include member_card.html member=member %}
-  {% endfor %}
+{% assign pi_members = "" | split: "" %}
+{% assign other_members = "" | split: "" %}
+{% assign alumni = "" | split: "" %}
+
+{% for member in site.members %}
+  {% assign is_alumnus = false %}
+  {% if member.enddate != empty and member.startdate.size == member.enddate.size %}
+    {% assign last_enddate = member.enddate | last %}
+    {% assign enddate_seconds = last_enddate | date: "%s" %}
+    {% if enddate_seconds < now_seconds %}{% assign is_alumnus = true %}{% endif %}
   {% endif %}
 
-  {% assign other_members = "" | split: "" %}
-  {% for member in site.members %}
-  {% if member.enddate != empty and member.startdate.size == member.enddate.size %}
-  {% assign last_enddate = member.enddate | last %}
-  {% assign enddate_seconds = last_enddate | date: "%s" %}
-  {% assign now_seconds = "now" | date: "%s" %}
-  {% if enddate_seconds < now_seconds %}{% continue %}{% endif %} {% endif %} {% if member.position contains "Principal"
-    %}{% continue %}{% endif %} {% assign other_members=other_members | push: member %} {% endfor %} {% if
-    other_members.size> 0 %}
-    <hr>
-    <h4>Member</h4>
-    {% for member in other_members %}
-    {% include member_card.html member=member %}
-    {% endfor %}
-    {% endif %}
+  {% if is_alumnus %}
+    {% assign sort_key = member.enddate | last | append: "|" | append: forloop.index0 %}
+    {% assign alumni = alumni | push: sort_key %}
+  {% elsif member.position contains "Principal" %}
+    {% assign pi_members = pi_members | push: member %}
+  {% else %}
+    {% assign other_members = other_members | push: member %}
+  {% endif %}
+{% endfor %}
+
+{% if pi_members.size > 0 %}
+<h1>Principal</h1>
+{% for member in pi_members %}
+{% include member_card.html member=member %}
+{% endfor %}
+{% endif %}
+
+{% if other_members.size > 0 %}
+<h1>Member</h1>
+{% for member in other_members %}
+{% include member_card.html member=member %}
+{% endfor %}
+{% endif %}
+
+{% if alumni.size > 0 %}
+<hr>
+<h1>Alumni</h1>
+<p class="text-muted" style="font-size:0.9rem;">Select a name to read a short bio.</p>
+
+<div class="accordion" id="alumniAccordion">
+  {% assign sorted_alumni = alumni | sort | reverse %}
+  {% for entry in sorted_alumni %}
+    {% assign alumnus_index = entry | split: "|" | last | plus: 0 %}
+    {% assign member = site.members[alumnus_index] %}
+    {% assign start_year = member.startdate | first | date: "%Y" %}
+    {% assign end_year = member.enddate | last | date: "%Y" %}
+  <div class="border-bottom">
+    <button class="btn btn-link btn-block text-left px-0 py-2 text-dark collapsed" type="button"
+      data-toggle="collapse" data-target="#alumnus{{ forloop.index }}" aria-expanded="false"
+      aria-controls="alumnus{{ forloop.index }}" style="text-decoration:none; white-space:normal;">
+      <strong>{{ member.name }}</strong>
+      <span class="text-muted" style="font-size:0.9rem;">
+        {% assign position = member.position | markdownify | remove: '<p>' | remove: '</p>' | strip %}
+        &mdash; {{ position }}, {% if start_year == end_year %}{{ start_year }}{% else %}{{ start_year }}&ndash;{{ end_year }}{% endif %}
+      </span>
+    </button>
+    <div id="alumnus{{ forloop.index }}" class="collapse" data-parent="#alumniAccordion">
+      <div class="pb-3" style="font-size:0.92rem;">
+        {{ member.description | markdownify }}
+        {% if member.subsequent %}
+        <p class="mb-1"><em>Subsequently: {{ member.subsequent }}</em></p>
+        {% endif %}
+        {% if member.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ member.linkedin }}"><img class="inline-block mem-icon"
+            src="/static/img/logo/linkedin_logo.svg" alt="LinkedIn"></a>
+        <a href="https://www.linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

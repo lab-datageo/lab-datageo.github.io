@@ -4,11 +4,14 @@ layout: home
 group: home
 ---
 
-### Lab Data dan Komputasi Geoteknik
+# Lab Data dan Komputasi Geoteknik
 
 <p>
-[We are](/members) a research and engineering group focused on advancing geotechnical engineering and infrastructure resilience through data and computing. Our work integrates fundamental geotechnics with data-driven and computational methods to support better understanding, engineering design, and decision-making in complex ground and infrastructure systems.We welcome collaboration with academic, industry, and government partners.
+We are a research and consulting group advancing geotechnical engineering and infrastructure through data and computing. Our work integrates fundamental engineering knowledge with data-driven and computational methods to improve the understanding, analysis, design, and decision-making of complex ground and infrastructure systems.
 </p>
 <p>
-[Contact us](/contact) to explore research, consulting, or training opportunities.
+We collaborate with academic, industry, and government partners on research, consulting, and capacity-building activities.
+</p>
+<p>
+[Contact us](/contact) to explore opportunities for collaboration, consulting, or training.
 </p>

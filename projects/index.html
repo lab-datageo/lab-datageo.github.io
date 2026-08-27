@@ -7,9 +7,7 @@ group: projects
 <h1>Consulting Projects</h1>
 
 <p>
-  A portfolio of consulting projects undertaken by the lab. Projects marked
-  <span class="badge badge-primary" style="font-size:0.75rem;">Featured</span>
-  include a full case study — click the row to view details.
+  The consulting projects undertaken by Dr. Dayu Apoji are listed below. 
 </p>
 
 <!-- ===== Ongoing Projects ===== -->
@@ -26,7 +24,7 @@ group: projects
 {% endif %}
 
 {% if has_ongoing %}
-<h5 style="color:#052049; margin-bottom:12px;">Ongoing Projects</h5>
+<h2 style="margin-bottom:12px;">Ongoing Projects</h2>
 <div class="row mb-4">
   {% for p in site.projects %}
     {% unless p.path contains "_template" %}
@@ -38,7 +36,6 @@ group: projects
             <h6 class="card-title mb-1">
               <a href="{{ p.url }}" class="text-dark">{{ p.title }}</a>
             </h6>
-            <p class="card-text text-muted mb-2" style="font-size:0.85rem;">{{ p.client }}</p>
             <span class="badge badge-light border">{{ p.service_type }}</span>
           </div>
         </div>
@@ -54,7 +51,6 @@ group: projects
           <div class="card-body">
             <span class="badge badge-success mb-2">Ongoing</span>
             <h6 class="card-title mb-1">{{ p.title }}</h6>
-            <p class="card-text text-muted mb-2" style="font-size:0.85rem;">{{ p.client }}</p>
             <span class="badge badge-light border">{{ p.service_type }}</span>
           </div>
         </div>
@@ -67,7 +63,7 @@ group: projects
 {% endif %}
 
 <!-- ===== Past Projects ===== -->
-<h5 style="color:#052049; margin-bottom:12px;">Past Projects</h5>
+<h2 style="margin-bottom:12px;">Past Projects</h2>
 
 <!-- Group by -->
 <div class="project-controls" style="margin-bottom:16px;">
@@ -105,7 +101,6 @@ group: projects
       <tr>
         <th style="width:40px;">#</th>
         <th>Project Title</th>
-        <th>Client</th>
         <th>Service Type</th>
         <th>Market Sector</th>
         <th style="width:90px;">Date</th>
@@ -133,7 +128,6 @@ group: projects
               </a>
               <span class="badge badge-primary ml-1" style="font-size:0.7rem; vertical-align:middle;">Featured</span>
             </td>
-            <td>{{ project.client }}</td>
             <td>{{ project.service_type }}</td>
             <td>{{ project.market_sector }}</td>
             <td>{{ project.date | date: "%b %Y" }}</td>
@@ -154,7 +148,6 @@ group: projects
               data-date="{{ project.date | date: '%Y%m%d' }}">
             <td class="row-num text-muted">–</td>
             <td><strong>{{ project.title }}</strong></td>
-            <td>{{ project.client }}</td>
             <td>{{ project.service_type }}</td>
             <td>{{ project.market_sector }}</td>
             <td>{{ project.date | date: "%b %Y" }}</td>
@@ -287,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var headerRow  = document.createElement('tr');
         headerRow.className = 'project-group-header';
         var headerCell = document.createElement('td');
-        headerCell.setAttribute('colspan', '6');
+        headerCell.setAttribute('colspan', '5');
         headerCell.style.cssText = 'background:#eef2f7; font-weight:bold; color:#052049; padding:10px 12px;';
         headerCell.textContent = groupVal;
         headerRow.appendChild(headerCell);

@@ -13,7 +13,7 @@
       </div>
 
       <!-- Project title -->
-      <h2 class="mb-1" style="font-weight:700;">{{ page.title }}</h2>
+      <h1 class="mb-1">{{ page.title }}</h1>
 
       {% if page.date %}
       <p class="text-muted mb-3" style="font-size:0.9rem;">{{ page.date | date: "%B %Y" }}</p>
@@ -48,7 +48,7 @@
       <!-- Scope -->
       {% if page.scope %}
       <div class="mb-4">
-        <h5 style="color:#052049;">Scope</h5>
+        <h2>Scope</h2>
         <p style="font-size:0.95rem;">{{ page.scope }}</p>
       </div>
       {% endif %}
@@ -56,7 +56,7 @@
       <!-- Key Outcomes -->
       {% if page.key_outcomes %}
       <div class="mb-4">
-        <h5 style="color:#052049;">Key Outcomes</h5>
+        <h2>Key Outcomes</h2>
         <ul style="font-size:0.95rem; padding-left:20px;">
           {% for outcome in page.key_outcomes %}
           <li>{{ outcome }}</li>

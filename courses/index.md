@@ -4,19 +4,18 @@ layout: default
 group: courses
 ---
 
-# Courses
-
 Dr. Dayu’s teaching portfolio spans undergraduate and graduate courses in civil and geotechnical engineering, along with interdisciplinary instruction in data science and professional training programs.
 
-## Institut Teknologi Bandung
+# Institut Teknologi Bandung
 
-### Graduate Course
+## Graduate Courses
 
 + SI5221 Advanced Foundation Engineering (2024)
 + SI6121 Soil Dynamics and Earthquake Engineering (2023–present)
 + SI6222 Special Topics: Tunnel Engineering (2025)
++ SI5101 Engineering Analysis (for Geotechnical Engineering) (2026–present)
 
-### Undergraduate Course
+## Undergraduate Courses
 
 + SI1201 Fundamentals of Earth Science (2026–present)
 + SI1202 Statistics and Probability (2024)
@@ -24,22 +23,22 @@ Dr. Dayu’s teaching portfolio spans undergraduate and graduate courses in civi
 + SI3221 Foundation Engineering (2023–present)
 + SI4121 Introduction to Soil Dynamics and Earthquake Engineering (2023–present)
 
-### Undergraduate Courses – ITB Mandatory
+## Undergraduate Courses – ITB Mandatory
 
-+ KU1102 Introduction to Computing (2024) 
-+ WI1102 Computational Thinking (2024–present) 
++ KU1102 Introduction to Computing (2024)
++ WI1102 Computational Thinking (2024–present)
 + WI2002 Data Literacy and Artificial Intelligence (2024–present)
 
-## University of California, Berkeley (USA)
+# University of California, Berkeley (USA)
 
 + CE175 Geotechnical & Geoenvironmental Engineering (Graduate Student Instructor, Spring 2019)
 + CE270 Advanced Geomechanics (Graduate Student Instructor, Fall 2019)
 + CE272 Numerical Modeling in Geomechanics (Graduate Student Instructor, Spring 2020)
 
-## Short Courses & Industry Training
+# Short Courses & Industry Training
 
 + Machine Learning for Geotechnical Engineering - Balai Hidrolika dan Geoteknik Keairan (BHGK), Kementerian PU (2026)
-+ Soil Mechanics- PT Komatsu Indonesia, Jakarta (CIBE ITB, 2024)
++ Soil Mechanics - PT Komatsu Indonesia, Jakarta (CIBE ITB, 2024)
 + Geotechnical Engineering for Irrigation Practices - Balai Teknik Irigasi, Kementerian PU (CIBE ITB, 2024)
 + Machine Learning for Geotechnical Engineering - Delve Underground, Walnut Creek, CA (2024)
 + Machine Learning for Geotechnical Engineering - ENGEO, San Ramon, CA (2023)

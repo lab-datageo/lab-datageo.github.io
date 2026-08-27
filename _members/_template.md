@@ -19,15 +19,14 @@ scholar: #XXXXXXXXXXXX #Google Scholar User ID, create if you don't have one
 description: "
 1-2 sentences about your prior education and research experience(s).
 
-1-2 sentences about your research project in the Fraser lab.
+1-2 sentences about your research project in Lab Data dan Komputasi Geoteknik.
 
-1-2 sentences about your life outside lab (hobbies, pets, etc.)
+1-2 sentences about your life outside lab (hobbies, interests, etc.)
 "
 
 # OPTIONAL
 pronouns: #example: they/them/theirs, he/him/his, she/her/hers, etc
 website: #<https://website.com/> #Enter your personal/professional website
-UCSF: #XXXXXXXX #UCSF Employees Profile ID only
 twitter: #username
 linkedin: #username
 github: #username

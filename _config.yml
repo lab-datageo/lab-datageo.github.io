@@ -1,11 +1,7 @@
-name: "Lab DataGeo"
-description: "This is the official web page for the Dayu Apoji Lab at ITB."
+name: "Lab Data dan Komputasi Geoteknik"
+description: "Official web page of Lab Data dan Komputasi Geoteknik, Institut Teknologi Bandung."
 
 url: "lab-datageo.github.io"
-
-paginate: 5
-plugins: [jekyll-paginate]
-paginate_path: "news/page:num"
 
 permalink: pretty
 markdown: kramdown
@@ -25,29 +21,11 @@ exclude:
         - vendor/ruby/
 
 collections:
-        affiliates:
-                output: true
         members:
                 output: true
         publications:
                 output: true
-        reviews:
-                output: true
         projects:
-                output: true
-        alumni:
-                output: true
-        sep:
-                output: true
-        visitors:
-                output: true
-        undergrads:
-                output: true
-        pets:
-                output: true
-        tags:
-                output: true
-        authors:
                 output: true
         research_themes:
                 output: false

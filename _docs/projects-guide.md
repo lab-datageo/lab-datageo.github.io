@@ -1,6 +1,6 @@
 ---
 title: "Panduan Pembaruan Halaman Projects"
-subtitle: "Lab Data dan Komputasi Geoteknik (Lab DataGeo) — lab-datageo.github.io"
+subtitle: "Lab Data dan Komputasi Geoteknik — lab-datageo.github.io"
 date: "Mei 2026"
 ---
 

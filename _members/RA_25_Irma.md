@@ -3,7 +3,6 @@ name: Irma Dwi Amalia, B.Eng.
 startdate: [2025-04-01]
 enddate: []
 image: /static/img/members/Irma1to1.jpg
-# altimage: /static/img/members/Fraser_pb.jpg
 position: Research Assistant
 #current:
 email: 25024012 (at) mahasiswa.itb.ac.id
